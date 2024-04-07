@@ -48,6 +48,26 @@ function App() {
                 img="/src/assets/ground.png"
                 />}>
               </Route>
+              <Route path="1" element={
+                <Floor fountainArr={[]}
+                img="/src/assets/first.png"
+                />}>
+              </Route>
+              <Route path="2" element={
+                <Floor fountainArr={[]}
+                img="/src/assets/second.png"
+                />}>
+              </Route>
+              <Route path="3" element={
+                <Floor fountainArr={[]}
+                img="/src/assets/third.png"
+                />}>
+              </Route>
+              <Route path="4" element={
+                <Floor fountainArr={[]}
+                img="/src/assets/fourth.png"
+                />}>
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>

@@ -31,20 +31,31 @@ export default function Modal({ open, onClose, wing, floor, status, quality }) {
     if (!open) return null;
 
     const [editStatusOpen, setEditStatusOpen] = useState(false);
-    const [editQualityOpen, setEditQualityOpen] = useState(false);
-
     const handleEditStatus = () => {
         setEditStatusOpen(!editStatusOpen);
     }
+    const [savedStatus, setSavedStatus] = useState("");
+    // PLUGIN: update status
+    const updateStatus = (e) => {
+        setSavedStatus(e.target.innerText);
+    }
 
+    const [editQualityOpen, setEditQualityOpen] = useState(false);
     const handleEditQuality = () => {
         setEditQualityOpen(!editQualityOpen);
     }
+    const [inputQuality, setInputQuality] = useState("");
+    const [savedQuality, setSavedQuality] = useState("");
 
-    // PLUGIN: update status
-    const updateStatus = () => {
-        console.log('status edited');
+    const handleInputQuality = (e) => {
+        setInputQuality(e.target.value);
+    };
+    // PLUGIN: update quality
+    const handleQualitySave = () => {
+        setSavedQuality(inputQuality);
+        setInputQuality(""); // clear after saving
     }
+
 
     return ReactDom.createPortal(
         <>
@@ -55,18 +66,23 @@ export default function Modal({ open, onClose, wing, floor, status, quality }) {
                     <p>{wing} wing, Floor {floor}</p>
                     <span className="status-container">
                         <p className="edit-status-p" onClick={() => handleEditStatus()}>Status:</p>
-                        <p>{status}</p>
+                        <p>{savedStatus === "" ? status : savedStatus}</p>
                     </span>
-                    <p>Quality: {quality}/5</p>
+                    <span className="quality-container">
+                        <p className="edit-quality-p" onClick={() => handleEditQuality()}>Quality:</p>
+                        <p>{savedQuality === "" ? quality : savedQuality}/5</p>
+                    </span>
                     <div className="status-edit-div" style={{ display: editStatusOpen ? "block" : "none" }}>
                         <p>Edit Status:</p>
-                        <button onClick={() => updateStatus()}>Broken</button>
-                        <button onClick={() => updateStatus()}>Red</button>
-                        <button onClick={() => updateStatus()}>Yellow</button>
-                        <button onClick={() => updateStatus()}>Green</button>
+                        <button onClick={updateStatus}>Broken</button>
+                        <button onClick={updateStatus}>Red</button>
+                        <button onClick={updateStatus}>Yellow</button>
+                        <button onClick={updateStatus}>Green</button>
                     </div>
-                    <div className="quality-edit-div">
-                        
+                    <div className="quality-edit-div" style={{ display: editQualityOpen ? "block" : "none" }}>
+                        <p>Edit Quality:</p>
+                        <input type="text" value={inputQuality} onChange={handleInputQuality} placeholder="Enter new quality"/>
+                        <button onClick={handleQualitySave}>Save</button>
                     </div>
                 </div>
             </div>
