@@ -1,6 +1,6 @@
 import './App.css'; 
 import Dropdown from './components/Dropdown.jsx';
-import Basement from './components/Maps/Basement.jsx';
+import Floor from './components/Maps/Floor.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -12,7 +12,42 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Dropdown />}>
-              <Route path="b" element={<Basement />} />
+              <Route path="b" element={
+                <Floor fountainArr={[
+                  {
+                    x: "50px",
+                    y: "-300px",
+                    wing: "M",
+                    floor: "B",
+                    status: "Green",
+                    quality: "3.2"
+                  },
+                  {
+                    x: "100px",
+                    y: "-100px",
+                    wing: "E",
+                    floor: "B",
+                    status: "Red",
+                    quality: "5"
+                  }
+                ]}
+                img="/src/assets/basement.png"
+                />}>
+              </Route>
+              <Route path="g" element={
+                <Floor fountainArr={[
+                  {
+                    x: "100px",
+                    y: "-80px",
+                    wing: "A",
+                    floor: "G",
+                    status: "Yellow",
+                    quality: "1.0"
+                  }
+                ]}
+                img="/src/assets/ground.png"
+                />}>
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>
