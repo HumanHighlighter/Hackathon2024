@@ -13,8 +13,8 @@ export default function Modal({ open, onClose, wing, floor, status, quality }) {
         transform: "translate(-50%, -50%)",
         backgroundColor: "#FFF",
         borderRadius: "6px",
-        padding: "50px",
-        paddingTop: "5px",
+        padding: "15px",
+        paddingTop: "10px",
         zIndex: 1000
     };
 
