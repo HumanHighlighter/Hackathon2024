@@ -1,7 +1,12 @@
 #container {
   display: grid;
-  grid-template-rows: 1fr 2fr 5fr;
-  
+  grid-template-columns: 2fr 9fr 4fr;
+  grid-template-rows: max-content;
+  column-gap: 50px;
+  padding-left: 50px;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
 }
 
 h1 {
