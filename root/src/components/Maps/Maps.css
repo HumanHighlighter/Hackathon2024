@@ -14,5 +14,8 @@ img {
 }
 
 .test {
-    background-color: rgba(204, 255, 0, 0.252);
+    background-color: rgba(206, 255, 10, 0.849);
+    width: 50px;
+    height: 50px;
+    transform: translate(90px, -80px);
 }
