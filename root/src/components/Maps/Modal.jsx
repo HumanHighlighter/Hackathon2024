@@ -1,6 +1,7 @@
 // from https://www.youtube.com/watch?v=LyLa7dU5tp8&ab_channel=WebDevSimplified
 
 import ReactDom from 'react-dom';
+import { useState } from 'react';
 import './Modal.css';
 import svg from './x-symbol-svgrepo-com.svg';
 
@@ -29,6 +30,22 @@ export default function Modal({ open, onClose, wing, floor, status, quality }) {
 
     if (!open) return null;
 
+    const [editStatusOpen, setEditStatusOpen] = useState(false);
+    const [editQualityOpen, setEditQualityOpen] = useState(false);
+
+    const handleEditStatus = () => {
+        setEditStatusOpen(!editStatusOpen);
+    }
+
+    const handleEditQuality = () => {
+        setEditQualityOpen(!editQualityOpen);
+    }
+
+    // PLUGIN: update status
+    const updateStatus = () => {
+        console.log('status edited');
+    }
+
     return ReactDom.createPortal(
         <>
             <div style={overlay_styles}></div>
@@ -36,8 +53,21 @@ export default function Modal({ open, onClose, wing, floor, status, quality }) {
                 <img className="x-svg" src={svg} alt={"CLOSE"} onClick={() => onClose()}/>
                 <div className="modal-info">
                     <p>{wing} wing, Floor {floor}</p>
-                    <p>Status: {status}</p>
+                    <span className="status-container">
+                        <p className="edit-status-p" onClick={() => handleEditStatus()}>Status:</p>
+                        <p>{status}</p>
+                    </span>
                     <p>Quality: {quality}/5</p>
+                    <div className="status-edit-div" style={{ display: editStatusOpen ? "block" : "none" }}>
+                        <p>Edit Status:</p>
+                        <button onClick={() => updateStatus()}>Broken</button>
+                        <button onClick={() => updateStatus()}>Red</button>
+                        <button onClick={() => updateStatus()}>Yellow</button>
+                        <button onClick={() => updateStatus()}>Green</button>
+                    </div>
+                    <div className="quality-edit-div">
+                        
+                    </div>
                 </div>
             </div>
         </>,

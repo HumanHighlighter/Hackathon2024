@@ -2,6 +2,7 @@ import './Maps.css';
 import Modal from './Modal.jsx';
 import { useState } from 'react';
 
+// TODO: make posn of pts relative to img
 
 export default function Floor({ fountainArr, img }) {
     const [activeStates, setActiveStates] = useState(new Array(fountainArr.length).fill(false));
@@ -10,6 +11,8 @@ export default function Floor({ fountainArr, img }) {
         const newActiveStates = [...activeStates];
         newActiveStates[index] = true;
         setActiveStates(newActiveStates);
+
+        
     };
 
     return (
