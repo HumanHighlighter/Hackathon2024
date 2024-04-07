@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <h1>BUBBLER</h1>
+      <h1><center>BUBBLER</center></h1>
       <div id="container">
         <BrowserRouter>
           <Routes>
