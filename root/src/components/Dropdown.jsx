@@ -8,12 +8,12 @@ export default function Dropdown() {
                 <button className="dropbtn">Select a floor</button>
                 <div className="dropdown-content">
                     <Link to="/b">Basement</Link>
+                    <Link to="/g">Ground</Link>
+                    <Link to="/1">Floor 1</Link>
+                    <Link to="/2">Floor 2</Link>
                 </div>
             </div>
-
-            {/* <div className="map-container"> */}
-                <Outlet />
-            {/* </div> */}
+            <Outlet />
         </>
     );
 }
