@@ -1,14 +1,22 @@
 import './App.css'; 
 import Dropdown from './components/Dropdown.jsx';
-import FloorMap from './components/FloorMap.jsx';
+import Basement from './components/Maps/Basement.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 
   return (
-    <div id="container">
+    <div>
       <h1>BUBBLER</h1>
-      <Dropdown />
-      <FloorMap />
+      <div id="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Dropdown />}>
+              <Route path="b" element={<Basement />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }

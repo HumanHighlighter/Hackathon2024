@@ -1,13 +1,19 @@
 import './Dropdown.css';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 export default function Dropdown() {
     return (
-        <div className="dropdown">
-            <button className="dropbtn">Select a floor</button>
-            <div className="dropdown-content">
-                <a href="1">Basement</a>
+        <>
+            <div className="dropdown">
+                <button className="dropbtn">Select a floor</button>
+                <div className="dropdown-content">
+                    <Link to="/b">Basement</Link>
+                </div>
             </div>
-        </div>
+
+            {/* <div className="map-container"> */}
+                <Outlet />
+            {/* </div> */}
+        </>
     );
 }

@@ -1,7 +1,13 @@
 import './Maps.css';
+import basement from './basement.png';
 
 export default function Basement() {
     return (
-        <div>basement</div>
+        <>
+            <div className="img-container">
+                <img src={basement} alt={"basement"} />
+                <div className="test"></div>
+            </div>
+        </>
     );
 }
