@@ -9,25 +9,29 @@
     color: black;
 }
 
-.status-container {
+.status-container,
+.quality-container {
     display: flex;
     justify-content: flex-start;
 }
 
-.status-container p {
+.status-container p,
+.quality-container p {
     margin: 0;
     padding: 0;
     margin-right: 6px;
 }
 
-.edit-status-p {
+.edit-status-p,
+.edit-quality-p {
     cursor: pointer;
 }
 
-.edit-status-p:hover {
+.edit-status-p:hover,
+.edit-quality-p:hover {
     text-decoration: underline;
 }
 
 .status-edit-div {
-    
+
 }
